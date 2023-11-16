@@ -11,4 +11,11 @@ public interface CarService {
 
     CreatedCarResponse add (CreateCarRequest request);
 
+    CreatedCarResponse update (String id, CreateCarRequest request);
+
+    Car getByCarId(String carId);
+
+    void deleteCar(String carId);
+
 }
+

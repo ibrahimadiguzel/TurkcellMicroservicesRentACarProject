@@ -30,4 +30,19 @@ public class CarController {
     public CreatedCarResponse add(@RequestBody CreateCarRequest request){
         return carService.add(request);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity update(@PathVariable String id, @RequestBody CreateCarRequest request){
+        carService.update(id, request);
+        return new ResponseEntity("Ürün Güncellendi!",HttpStatus.CREATED);
+    }
+    @GetMapping("/getById/{carId}")
+    public Car getByCarId(@PathVariable String carId){
+        Car getByCarId = carService.getByCarId(carId);
+        return getByCarId;
+    }
+    @DeleteMapping("/{carId}")
+    public void deleteCar(@PathVariable String carId) {
+        carService.deleteCar(carId);
+    }
 }
